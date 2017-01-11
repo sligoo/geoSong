@@ -7,9 +7,14 @@
   },
   "dependencies": {
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-bootstrap": "latest",
+    "react-dom": "^15.4.2",
+    "webpack": "^1.14.0",
+    "google-map-react": "latest",
+    "react-pure-render": "latest"
   },
   "scripts": {
+    "dev": "webpack -d --watch",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
