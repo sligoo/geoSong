@@ -1,25 +1,24 @@
 import React, {PropTypes, Component} from 'react';
 import {render} from 'react-dom';
-import {Grid, Row, Col} from "react-bootstrap";
 
-import Map from "./map.jsx";
 import MyNavbar from "./MyNavbar.jsx";
+import EcouteContent from "./EcouteContent.jsx"
+import Map from './map.jsx';
 
 class App extends React.Component {
-
-
     render() {
         return (
-            <Grid>
-                <Row className="show-grid">
+            <div>
+                <div id="header">
                     <MyNavbar/>
-                </Row>
-                <Row className="show-grid">
-                    <Col xs={12} md={8} > <Map/> </Col>
-                    <Col xs={6} md={4} > Player </Col>
-                </Row>
-            </Grid>
-
+                </div>
+                <div id="content">
+                    <div className="bottom">
+                    <Map />
+                    </div>
+                    <EcouteContent className="top" />
+                </div>
+            </div>
         );
     }
 }

@@ -15,6 +15,24 @@ body {
     color: black;
 }
 
+.content-col {
+    padding: 0;
+}
+
+.bottom {
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border: 1px solid red;
+}
+
+.top {
+    z-index: 2;
+}
+
 @media (min-width: 768px) {
     html, body {
         height: 100%;
@@ -41,6 +59,6 @@ body {
 
     .content-col {
         height: 100%;
+        padding: 0;
     }
 }
-

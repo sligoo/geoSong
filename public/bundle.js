@@ -57,15 +57,17 @@
 	
 	var _reactDom = __webpack_require__(/*! react-dom */ 32);
 	
-	var _reactBootstrap = __webpack_require__(/*! react-bootstrap */ 179);
-	
-	var _map = __webpack_require__(/*! ./map.jsx */ 461);
-	
-	var _map2 = _interopRequireDefault(_map);
-	
-	var _MyNavbar = __webpack_require__(/*! ./MyNavbar.jsx */ 464);
+	var _MyNavbar = __webpack_require__(/*! ./MyNavbar.jsx */ 178);
 	
 	var _MyNavbar2 = _interopRequireDefault(_MyNavbar);
+	
+	var _EcouteContent = __webpack_require__(/*! ./EcouteContent.jsx */ 431);
+	
+	var _EcouteContent2 = _interopRequireDefault(_EcouteContent);
+	
+	var _map = __webpack_require__(/*! ./map.jsx */ 432);
+	
+	var _map2 = _interopRequireDefault(_map);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -88,28 +90,22 @@
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
-	                _reactBootstrap.Grid,
+	                'div',
 	                null,
 	                _react2.default.createElement(
-	                    _reactBootstrap.Row,
-	                    { className: 'show-grid' },
+	                    'div',
+	                    { id: 'header' },
 	                    _react2.default.createElement(_MyNavbar2.default, null)
 	                ),
 	                _react2.default.createElement(
-	                    _reactBootstrap.Row,
-	                    { className: 'show-grid' },
+	                    'div',
+	                    { id: 'content' },
 	                    _react2.default.createElement(
-	                        _reactBootstrap.Col,
-	                        { xs: 12, md: 8 },
-	                        ' ',
-	                        _react2.default.createElement(_map2.default, null),
-	                        ' '
+	                        'div',
+	                        { className: 'bottom' },
+	                        _react2.default.createElement(_map2.default, null)
 	                    ),
-	                    _react2.default.createElement(
-	                        _reactBootstrap.Col,
-	                        { xs: 6, md: 4 },
-	                        ' Player '
-	                    )
+	                    _react2.default.createElement(_EcouteContent2.default, { className: 'top' })
 	                )
 	            );
 	        }
@@ -22079,7 +22075,102 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
-/* 178 */,
+/* 178 */
+/*!**************************!*\
+  !*** ./src/MyNavbar.jsx ***!
+  \**************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactBootstrap = __webpack_require__(/*! react-bootstrap */ 179);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by rhiobet on 10/01/17.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var MyNavbar = function (_React$Component) {
+	    _inherits(MyNavbar, _React$Component);
+	
+	    function MyNavbar() {
+	        _classCallCheck(this, MyNavbar);
+	
+	        return _possibleConstructorReturn(this, (MyNavbar.__proto__ || Object.getPrototypeOf(MyNavbar)).apply(this, arguments));
+	    }
+	
+	    _createClass(MyNavbar, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                _reactBootstrap.Navbar,
+	                { collapseOnSelect: true },
+	                _react2.default.createElement(
+	                    _reactBootstrap.Navbar.Header,
+	                    null,
+	                    _react2.default.createElement(
+	                        _reactBootstrap.Navbar.Brand,
+	                        null,
+	                        _react2.default.createElement(
+	                            'a',
+	                            { href: '#' },
+	                            'GeoSong'
+	                        )
+	                    ),
+	                    _react2.default.createElement(_reactBootstrap.Navbar.Toggle, null)
+	                ),
+	                _react2.default.createElement(
+	                    _reactBootstrap.Navbar.Collapse,
+	                    null,
+	                    _react2.default.createElement(
+	                        _reactBootstrap.Nav,
+	                        null,
+	                        _react2.default.createElement(
+	                            _reactBootstrap.NavItem,
+	                            { eventKey: 1, href: '#' },
+	                            '\xC9coute'
+	                        ),
+	                        _react2.default.createElement(
+	                            _reactBootstrap.NavItem,
+	                            { eventKey: 2, href: '#' },
+	                            'Randonn\xE9es'
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        _reactBootstrap.Nav,
+	                        { pullRight: true },
+	                        _react2.default.createElement(
+	                            _reactBootstrap.NavItem,
+	                            { eventKey: 3, href: '#' },
+	                            'Connexion'
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return MyNavbar;
+	}(_react2.default.Component);
+	
+	exports.default = MyNavbar;
+
+/***/ },
 /* 179 */
 /*!****************************************!*\
   !*** ./~/react-bootstrap/lib/index.js ***!
@@ -41661,8 +41752,153 @@
 	exports.ValidComponentChildren = _ValidComponentChildren3['default'];
 
 /***/ },
-/* 431 */,
-/* 432 */,
+/* 431 */
+/*!*******************************!*\
+  !*** ./src/EcouteContent.jsx ***!
+  \*******************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactBootstrap = __webpack_require__(/*! react-bootstrap */ 179);
+	
+	var _map = __webpack_require__(/*! ./map.jsx */ 432);
+	
+	var _map2 = _interopRequireDefault(_map);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var EcouteContent = function (_React$Component) {
+	    _inherits(EcouteContent, _React$Component);
+	
+	    function EcouteContent() {
+	        _classCallCheck(this, EcouteContent);
+	
+	        return _possibleConstructorReturn(this, (EcouteContent.__proto__ || Object.getPrototypeOf(EcouteContent)).apply(this, arguments));
+	    }
+	
+	    _createClass(EcouteContent, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                _reactBootstrap.Grid,
+	                { className: 'content-grid', style: { border: '1px solid blue' } },
+	                _react2.default.createElement(
+	                    _reactBootstrap.Row,
+	                    { className: 'content-row' },
+	                    _react2.default.createElement(_reactBootstrap.Col, { xs: 12, sm: 6, className: 'content-col', style: { border: '1px solid red' } }),
+	                    _react2.default.createElement(_reactBootstrap.Col, { xs: 12, sm: 6, className: 'content-col', style: { border: '1px solid red' } })
+	                ),
+	                _react2.default.createElement(
+	                    _reactBootstrap.Row,
+	                    { className: 'content-row' },
+	                    _react2.default.createElement(_reactBootstrap.Col, { xs: 12, sm: 6, className: 'content-col', style: { border: '1px solid red' } }),
+	                    _react2.default.createElement(_reactBootstrap.Col, { xs: 12, sm: 6, className: 'content-col', style: { border: '1px solid red' } })
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return EcouteContent;
+	}(_react2.default.Component);
+	
+	exports.default = EcouteContent;
+
+/***/ },
+/* 432 */
+/*!*********************!*\
+  !*** ./src/map.jsx ***!
+  \*********************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _googleMapReact = __webpack_require__(/*! google-map-react */ 433);
+	
+	var _googleMapReact2 = _interopRequireDefault(_googleMapReact);
+	
+	var _my_great_place = __webpack_require__(/*! ./my_great_place.jsx */ 456);
+	
+	var _my_great_place2 = _interopRequireDefault(_my_great_place);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by sacha on 11/01/2017.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var Map = function (_React$Component) {
+	    _inherits(Map, _React$Component);
+	
+	    function Map(props) {
+	        _classCallCheck(this, Map);
+	
+	        return _possibleConstructorReturn(this, (Map.__proto__ || Object.getPrototypeOf(Map)).call(this, props));
+	    }
+	
+	    _createClass(Map, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                _googleMapReact2.default,
+	                {
+	                    apiKey: 'AIzaSyDsO0A8v464XkyhH9WAaUt4ENuDcCcGFpw' // set if you need stats etc ...
+	                    , center: this.props.center,
+	                    zoom: this.props.zoom },
+	                _react2.default.createElement(_my_great_place2.default, { lat: 43.5979552, lng: 1.4513846, text: 'A' /* Kreyser Avrora */ }),
+	                _react2.default.createElement(_my_great_place2.default, _extends({}, this.props.greatPlaceCoords, { text: 'B' /* road circle */ }))
+	            );
+	        }
+	    }]);
+	
+	    return Map;
+	}(_react2.default.Component);
+	
+	Map.propTypes = {
+	    center: _react.PropTypes.array,
+	    zoom: _react.PropTypes.number,
+	    greatPlaceCoords: _react.PropTypes.any
+	};
+	Map.defaultProps = {
+	    center: [43.6008029, 1.3628014],
+	    zoom: 9,
+	    greatPlaceCoords: { lat: 43.6020423, lng: 1.45222 }
+	};
+	exports.default = Map;
+
+/***/ },
 /* 433 */
 /*!*****************************************!*\
   !*** ./~/google-map-react/lib/index.js ***!
@@ -44773,7 +45009,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _my_great_place_styles = __webpack_require__(/*! ./my_great_place_styles.js */ 460);
+	var _my_great_place_styles = __webpack_require__(/*! ./my_great_place_styles.js */ 457);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -44815,10 +45051,7 @@
 	exports.default = MyGreatPlace;
 
 /***/ },
-/* 457 */,
-/* 458 */,
-/* 459 */,
-/* 460 */
+/* 457 */
 /*!**************************************!*\
   !*** ./src/my_great_place_styles.js ***!
   \**************************************/
@@ -44856,199 +45089,6 @@
 	};
 	
 	exports.greatPlaceStyle = greatPlaceStyle;
-
-/***/ },
-/* 461 */
-/*!*********************!*\
-  !*** ./src/map.jsx ***!
-  \*********************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _googleMapReact = __webpack_require__(/*! google-map-react */ 433);
-	
-	var _googleMapReact2 = _interopRequireDefault(_googleMapReact);
-	
-	var _my_great_place = __webpack_require__(/*! ./my_great_place.jsx */ 456);
-	
-	var _my_great_place2 = _interopRequireDefault(_my_great_place);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by sacha on 11/01/2017.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-	
-	var Map = function (_React$Component) {
-	    _inherits(Map, _React$Component);
-	
-	    function Map(props) {
-	        _classCallCheck(this, Map);
-	
-	        return _possibleConstructorReturn(this, (Map.__proto__ || Object.getPrototypeOf(Map)).call(this, props));
-	    }
-	
-	    _createClass(Map, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                _googleMapReact2.default,
-	                {
-	                    apiKey: 'AIzaSyDsO0A8v464XkyhH9WAaUt4ENuDcCcGFpw' // set if you need stats etc ...
-	                    , center: this.props.center,
-	                    zoom: this.props.zoom },
-	                _react2.default.createElement(_my_great_place2.default, { lat: 43.5979552, lng: 1.4513846, text: 'A' /* Kreyser Avrora */ }),
-	                _react2.default.createElement(_my_great_place2.default, _extends({}, this.props.greatPlaceCoords, { text: 'B' /* road circle */ }))
-	            );
-	        }
-	    }]);
-	
-	    return Map;
-	}(_react2.default.Component);
-	
-	Map.propTypes = {
-	    center: _react.PropTypes.array,
-	    zoom: _react.PropTypes.number,
-	    greatPlaceCoords: _react.PropTypes.any
-	};
-	Map.defaultProps = {
-	    center: [43.6008029, 1.3628014],
-	    zoom: 9,
-	    greatPlaceCoords: { lat: 43.6020423, lng: 1.45222 }
-	};
-	exports.default = Map;
-
-/***/ },
-/* 462 */,
-/* 463 */,
-/* 464 */
-/*!**************************!*\
-  !*** ./src/MyNavbar.jsx ***!
-  \**************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactBootstrap = __webpack_require__(/*! react-bootstrap */ 179);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by rhiobet on 10/01/17.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-	
-	var navbarInstance = _react2.default.createElement(
-	    _reactBootstrap.Navbar,
-	    null,
-	    _react2.default.createElement(
-	        _reactBootstrap.Navbar.Header,
-	        null,
-	        _react2.default.createElement(
-	            _reactBootstrap.Navbar.Brand,
-	            null,
-	            _react2.default.createElement(
-	                'a',
-	                { href: '#' },
-	                'GeoSong'
-	            )
-	        )
-	    ),
-	    _react2.default.createElement(
-	        _reactBootstrap.Nav,
-	        null,
-	        _react2.default.createElement(
-	            _reactBootstrap.NavItem,
-	            { eventKey: 1, href: '#' },
-	            'Link'
-	        ),
-	        _react2.default.createElement(
-	            _reactBootstrap.NavItem,
-	            { eventKey: 2, href: '#' },
-	            'Link'
-	        ),
-	        _react2.default.createElement(
-	            _reactBootstrap.NavDropdown,
-	            { eventKey: 3, title: 'Dropdown', id: 'basic-nav-dropdown' },
-	            _react2.default.createElement(
-	                _reactBootstrap.MenuItem,
-	                { eventKey: 3.1 },
-	                'Action'
-	            ),
-	            _react2.default.createElement(
-	                _reactBootstrap.MenuItem,
-	                { eventKey: 3.2 },
-	                'Another action'
-	            ),
-	            _react2.default.createElement(
-	                _reactBootstrap.MenuItem,
-	                { eventKey: 3.3 },
-	                'Something else here'
-	            ),
-	            _react2.default.createElement(_reactBootstrap.MenuItem, { divider: true }),
-	            _react2.default.createElement(
-	                _reactBootstrap.MenuItem,
-	                { eventKey: 3.3 },
-	                'Separated link'
-	            )
-	        )
-	    )
-	);
-	
-	var MyNavbar = function (_React$Component) {
-	    _inherits(MyNavbar, _React$Component);
-	
-	    function MyNavbar() {
-	        _classCallCheck(this, MyNavbar);
-	
-	        return _possibleConstructorReturn(this, (MyNavbar.__proto__ || Object.getPrototypeOf(MyNavbar)).apply(this, arguments));
-	    }
-	
-	    _createClass(MyNavbar, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                navbarInstance
-	            );
-	        }
-	    }]);
-	
-	    return MyNavbar;
-	}(_react2.default.Component);
-	
-	exports.default = MyNavbar;
 
 /***/ }
 /******/ ]);
