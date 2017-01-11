@@ -11,7 +11,8 @@
     "react-dom": "^15.4.2",
     "webpack": "^1.14.0",
     "google-map-react": "latest",
-    "react-pure-render": "latest"
+    "react-pure-render": "latest",
+    "react-router": "latest"
   },
   "scripts": {
     "dev": "webpack -d --watch",

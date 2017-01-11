@@ -19,7 +19,7 @@ body {
     padding: 0;
 }
 
-.bottom {
+/*.bottom {
     z-index: -1;
     position: fixed;
     top: 0;
@@ -32,7 +32,7 @@ body {
 .top {
     z-index: 2;
 }
-
+*/
 @media (min-width: 768px) {
     html, body {
         height: 100%;
