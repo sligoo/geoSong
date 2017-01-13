@@ -1,10 +1,10 @@
 import React, {PropTypes, Component} from 'react';
 import {render} from 'react-dom';
 
-import MyNavbar from "./MyNavbar.jsx";
-import EcouteContent from "./EcouteContent.jsx"
+import MyNavbar from "./components/MyNavbar.jsx";
+import EcouteContent from "./components/EcouteContent.jsx"
 
-import Map from './map.jsx';
+import Map from './components/map.jsx';
 
 class App extends React.Component {
     render() {
