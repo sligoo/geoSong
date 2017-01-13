@@ -5,17 +5,21 @@ var BUILD_DIR = path.resolve(__dirname, 'public');
 var APP_DIR = path.resolve(__dirname, 'src');
 
 var config = {
-    entry: APP_DIR + '/index.jsx',
+    entry: './index.js',
     output: {
-        path: BUILD_DIR,
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: ''
     },
     module : {
         loaders : [
             {
-                test : /\.jsx?/,
-                include : APP_DIR,
-                loader : 'babel'
+                test: /\.jsx?$/,
+                loader: 'babel',
+                exclude: /node_modules/,
+                query: {
+                    cacheDirectory: true,
+                    presets: ['react', 'es2015', 'stage-0']
+                }
             }
         ]
     }
