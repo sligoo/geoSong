@@ -99,12 +99,12 @@
 	                ),
 	                _react2.default.createElement(
 	                    'div',
+	                    { id: 'map' },
+	                    _react2.default.createElement(_map2.default, null)
+	                ),
+	                _react2.default.createElement(
+	                    'div',
 	                    { id: 'content' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'bottom' },
-	                        _react2.default.createElement(_map2.default, null)
-	                    ),
 	                    _react2.default.createElement(_EcouteContent2.default, { className: 'top' })
 	                )
 	            );
@@ -41772,10 +41772,6 @@
 	
 	var _reactBootstrap = __webpack_require__(/*! react-bootstrap */ 179);
 	
-	var _map = __webpack_require__(/*! ./map.jsx */ 432);
-	
-	var _map2 = _interopRequireDefault(_map);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -41802,14 +41798,14 @@
 	                _react2.default.createElement(
 	                    _reactBootstrap.Row,
 	                    { className: 'content-row' },
-	                    _react2.default.createElement(_reactBootstrap.Col, { xs: 12, sm: 6, className: 'content-col', style: { border: '1px solid red' } }),
-	                    _react2.default.createElement(_reactBootstrap.Col, { xs: 12, sm: 6, className: 'content-col', style: { border: '1px solid red' } })
+	                    _react2.default.createElement(_reactBootstrap.Col, { xs: 12, sm: 6, className: 'content-col map', style: { border: '1px solid red' } }),
+	                    _react2.default.createElement(_reactBootstrap.Col, { xs: 12, sm: 6, className: 'content-col card', style: { border: '1px solid red' } })
 	                ),
 	                _react2.default.createElement(
 	                    _reactBootstrap.Row,
 	                    { className: 'content-row' },
-	                    _react2.default.createElement(_reactBootstrap.Col, { xs: 12, sm: 6, className: 'content-col', style: { border: '1px solid red' } }),
-	                    _react2.default.createElement(_reactBootstrap.Col, { xs: 12, sm: 6, className: 'content-col', style: { border: '1px solid red' } })
+	                    _react2.default.createElement(_reactBootstrap.Col, { xs: 12, sm: 6, className: 'content-col card', style: { border: '1px solid red' } }),
+	                    _react2.default.createElement(_reactBootstrap.Col, { xs: 12, sm: 6, className: 'content-col card', style: { border: '1px solid red' } })
 	                )
 	            );
 	        }
@@ -41859,6 +41855,21 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by sacha on 11/01/2017.
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 	
+	function createMapOptions(maps) {
+	    // next props are exposed at maps
+	    // "Animation", "ControlPosition", "MapTypeControlStyle", "MapTypeId",
+	    // "NavigationControlStyle", "ScaleControlStyle", "StrokePosition", "SymbolPath", "ZoomControlStyle",
+	    // "DirectionsStatus", "DirectionsTravelMode", "DirectionsUnitSystem", "DistanceMatrixStatus",
+	    // "DistanceMatrixElementStatus", "ElevationStatus", "GeocoderLocationType", "GeocoderStatus", "KmlLayerStatus",
+	    // "MaxZoomStatus", "StreetViewStatus", "TransitMode", "TransitRoutePreference", "TravelMode", "UnitSystem"
+	    return {
+	        zoomControlOptions: {
+	            position: maps.ControlPosition.LEFT_TOP,
+	            style: maps.ZoomControlStyle.SMALL
+	        }
+	    };
+	}
+	
 	var Map = function (_React$Component) {
 	    _inherits(Map, _React$Component);
 	
@@ -41876,7 +41887,8 @@
 	                {
 	                    apiKey: 'AIzaSyDsO0A8v464XkyhH9WAaUt4ENuDcCcGFpw' // set if you need stats etc ...
 	                    , center: this.props.center,
-	                    zoom: this.props.zoom },
+	                    zoom: this.props.zoom,
+	                    options: createMapOptions },
 	                _react2.default.createElement(_my_great_place2.default, { lat: 43.5979552, lng: 1.4513846, text: 'A' /* Kreyser Avrora */ }),
 	                _react2.default.createElement(_my_great_place2.default, _extends({}, this.props.greatPlaceCoords, { text: 'B' /* road circle */ }))
 	            );
@@ -41886,14 +41898,14 @@
 	    return Map;
 	}(_react2.default.Component);
 	
-	Map.propTypes = {
+	Map.PropTypes = {
 	    center: _react.PropTypes.array,
 	    zoom: _react.PropTypes.number,
 	    greatPlaceCoords: _react.PropTypes.any
 	};
 	Map.defaultProps = {
 	    center: [43.6008029, 1.3628014],
-	    zoom: 9,
+	    zoom: 13,
 	    greatPlaceCoords: { lat: 43.6020423, lng: 1.45222 }
 	};
 	exports.default = Map;
