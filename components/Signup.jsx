@@ -5,14 +5,14 @@
 import React, {PropTypes, Component} from 'react';
 import {Grid,Row, Col} from 'react-bootstrap';
 
-class Connect extends React.Component {
+class Signup extends React.Component {
     render() {
         return(
             <Grid className="content-grid" >
-                <div id="content" >Page de connexion</div>
+                <div id="content" > Hi </div>
             </Grid>
         );
     }
 }
 
-export default Connect;
+export default Signup;

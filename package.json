@@ -11,7 +11,8 @@
     "google-map-react": "latest",
     "react-pure-render": "latest",
     "react-router": "latest",
-    "react-router-bootstrap": "latest"
+    "react-router-bootstrap": "latest",
+    "underscore": "latest"
   },
   "devDependencies": {
     "react-scripts": "0.8.5",

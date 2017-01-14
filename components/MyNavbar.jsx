@@ -27,7 +27,10 @@ class MyNavbar extends React.Component {
                     </Nav>
                     <Nav pullRight>
                         <IndexLinkContainer to="signup" activeClassName="active">
-                            <NavItem  eventKey={3} href="#">Connexion</NavItem>
+                            <NavItem  eventKey={3}>Signup</NavItem>
+                        </IndexLinkContainer>
+                        <IndexLinkContainer to="login" activeClassName="active">
+                            <NavItem  eventKey={3} >Login</NavItem>
                         </IndexLinkContainer>
                     </Nav>
                 </Navbar.Collapse>
