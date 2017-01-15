@@ -12,7 +12,9 @@
     "react-pure-render": "latest",
     "react-router": "latest",
     "react-router-bootstrap": "latest",
-    "underscore": "latest"
+    "underscore": "latest",
+    "react-bootstrap-validation": "latest",
+    "react-redux": "latest"
   },
   "devDependencies": {
     "react-scripts": "0.8.5",

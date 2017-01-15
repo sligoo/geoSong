@@ -14,7 +14,7 @@ class App extends React.Component {
                 <div id="header">
                     <MyNavbar/>
                 </div>
-                <div id="contenu">
+                <div id="content">
                     {this.props.children}
                 </div>
             </div>
