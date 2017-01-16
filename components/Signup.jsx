@@ -32,7 +32,7 @@ class Signup extends React.Component {
         return (
             <Grid className="content-grid">
                 <Row className="content-row">
-                    <Form onSubmit={onSubmit}>
+                    <Form >
                         <FieldGroup
                             id="formControlsPseudo"
                             type="text"
