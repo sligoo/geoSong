@@ -64,7 +64,7 @@ class Map extends React.Component {
     static defaultProps = {
         center: [INITIAL_LOCATION.position.latitude, INITIAL_LOCATION.position.longitude],
         zoom: 13,
-        greatPlaceCoords: {lat: 43.6020423, lng: 1.45222
+        greatPlaceCoords: {lat: 43.6020423, lng: 1.45222}
     };
 
 
