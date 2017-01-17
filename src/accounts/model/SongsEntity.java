@@ -1,3 +1,5 @@
+package accounts.model;
+
 import javax.persistence.*;
 
 /**
