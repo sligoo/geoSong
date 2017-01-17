@@ -49,9 +49,8 @@ export class MusicPlayer extends React.Component {
         if (State.getConnected()) {
             player = (
                 <div id="player-on">
-                    <Details />
                     <audio controls>
-                        <source src="/Music/Harder.mp3" type="audio/mp3"/>
+                        <source src={this.state.url} type="audio/mp3"/>
                     </audio>
                 </div>
             );
