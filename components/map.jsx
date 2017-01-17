@@ -43,43 +43,48 @@ class Map extends React.Component {
             greatPlaceCoords: {
                 lat: 43.6020423, lng: 1.45222
             }
-
         }
-        console.log(this.getCurrentLocation())
+        this.geolocationSearch();
+
     }
 
-    getCurrentLocation(){
-        //If brower supports HTML5 geoLocation
-        let lati;
-        let longo;
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                lati = position.coords.latitude;
-                longo = position.coords.longitude;
-            });
+    geolocationSearch() {
 
-        } else {
-                lati = INITIAL_LOCATION.position.latitude;
-                longo = INITIAL_LOCATION.position.longitude;
-        }
-        return ;
+        /// Successful geolocation
+        let success = function (position) {
+            let lat = position.coords.latitude;
+            let lon = position.coords.longitude;
+
+            /// Update state with new API Data based on lat lon
+            this.updateState(lat, lon);
+        }.bind(this);
+
+        /// Error'd geolocation
+        let error = function (error) {
+            if (error.message == 'User denied Geolocation') {
+                alert('Please enable location services');
+            }
+        };
+
+        /// Get the position
+        navigator.geolocation.watchPosition(success, error);
     }
 
-    updateState(lat, lon){
+    updateState(lat, lon) {
         this.setState({
-            center: [ lat, lon]
+            center: [lat, lon]
         })
     }
 
+    componentDidMount() {
+        this.geolocationSearch();
+    }
 
     render() {
         return (
             <div>
-                {console.log(this.getCurrentLocation())}
                 <GoogleMap
                     bootstrapURLKeys={{key: 'AIzaSyDsO0A8v464XkyhH9WAaUt4ENuDcCcGFpw'}}
-                    //apiKey='AIzaSyDsO0A8v464XkyhH9WAaUt4ENuDcCcGFpw' // set if you need
-                    // stats etc ...
                     center={this.state.center}
                     zoom={this.state.zoom}
                     options={createMapOptions}>
