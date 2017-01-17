@@ -6,6 +6,8 @@ import React, {PropTypes} from 'react';
 
 import GoogleMap from 'google-map-react';
 import MyGreatPlace from './my_great_place.jsx';
+import {Tooltip, OverlayTrigger} from 'react-bootstrap';
+
 
 
 let INITIAL_LOCATION = {
@@ -31,8 +33,13 @@ function createMapOptions(maps) {
     };
 }
 
+const tooltip = (
+    <Tooltip id="tooltip"><strong>Holy guacamole!</strong> Check this info.</Tooltip>
+);
 
 class Map extends React.Component {
+
+
 
     constructor(props) {
         super(props);

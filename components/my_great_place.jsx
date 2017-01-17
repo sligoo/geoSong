@@ -4,7 +4,15 @@
 
 import React, {PropTypes, Component} from 'react';
 
+import {Popover, OverlayTrigger, Button} from 'react-bootstrap';
+
 import {greatPlaceStyle} from './my_great_place_styles.js';
+
+const popoverClickRootClose = (
+    <Popover id="popover-trigger-click-root-close" title="Lecture Musique">
+        <strong>Titre: </strong>
+    </Popover>
+);
 
 export default class MyGreatPlace extends Component {
     static propTypes = {
@@ -16,9 +24,11 @@ export default class MyGreatPlace extends Component {
 
     render() {
         return (
-            <div style={greatPlaceStyle}>
-                {this.props.text}
-            </div>
+            <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={popoverClickRootClose}>
+                <Button style={greatPlaceStyle}>
+                    {this.props.text}
+                </Button>
+            </OverlayTrigger>
         );
     }
 }
