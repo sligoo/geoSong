@@ -16,7 +16,9 @@ class MyNavbar extends React.Component {
             <Navbar collapseOnSelect>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <a href="">GeoSong</a>
+                        <a href="/">
+                            GeoSong
+                        </a>
                     </Navbar.Brand>
                     <Navbar.Toggle/>
                 </Navbar.Header>

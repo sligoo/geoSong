@@ -9,25 +9,13 @@ import MyGreatPlace from './my_great_place.jsx';
 import {Alert} from 'react-bootstrap';
 
 
-//Current location click event
-function getCurrentLocation() {
-
-    //If brower supports HTML5 geoLocation
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            const lati = position.coords.latitude;
-            const longo = position.coords.longitude;
-            console.log(lati);
-            INITIAL_LOCATION.position.latitude = lati;
-            INITIAL_LOCATION.position.longitude = longo;
-        });
-
+let INITIAL_LOCATION = {
+    position: {
+        latitude: 51.5085300,
+        longitude: -0.1257400
     }
-    else {
-        alert('This Browser doesn\'t support HTML5 geolocation');
+};
 
-    }
-}
 
 function createMapOptions(maps) {
     // next props are exposed at maps
@@ -44,53 +32,67 @@ function createMapOptions(maps) {
     };
 }
 
-let INITIAL_LOCATION = {
-    position: {
-        latitude: 51.5085300,
-        longitude: -0.1257400
-    }
-};
 
 class Map extends React.Component {
 
-
-
-    static PropTypes = {
-        center: PropTypes.array,
-        zoom: PropTypes.number,
-        greatPlaceCoords: PropTypes.any
-    };
-
-    static defaultProps = {
-        center: [INITIAL_LOCATION.position.latitude, INITIAL_LOCATION.position.longitude],
-        zoom: 13,
-        greatPlaceCoords: {lat: 43.6020423, lng: 1.45222}
-    };
-
-
     constructor(props) {
         super(props);
+        this.state = {
+            center: [INITIAL_LOCATION.position.latitude, INITIAL_LOCATION.position.longitude],
+            zoom: 13,
+            greatPlaceCoords: {
+                lat: 43.6020423, lng: 1.45222
+            }
+
+        }
+        console.log(this.getCurrentLocation())
     }
+
+    getCurrentLocation(){
+        //If brower supports HTML5 geoLocation
+        let lati;
+        let longo;
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                lati = position.coords.latitude;
+                longo = position.coords.longitude;
+            });
+
+        } else {
+                lati = INITIAL_LOCATION.position.latitude;
+                longo = INITIAL_LOCATION.position.longitude;
+        }
+        return ;
+    }
+
+    updateState(lat, lon){
+        this.setState({
+            center: [ lat, lon]
+        })
+    }
+
 
     render() {
         return (
             <div>
-                {getCurrentLocation()}
+                {console.log(this.getCurrentLocation())}
                 <GoogleMap
                     bootstrapURLKeys={{key: 'AIzaSyDsO0A8v464XkyhH9WAaUt4ENuDcCcGFpw'}}
                     //apiKey='AIzaSyDsO0A8v464XkyhH9WAaUt4ENuDcCcGFpw' // set if you need
                     // stats etc ...
-                    center={this.props.center}
-                    zoom={this.props.zoom}
+                    center={this.state.center}
+                    zoom={this.state.zoom}
                     options={createMapOptions}>
                     <MyGreatPlace lat={43.5979552} lng={1.4513846}
                                   text={'A'} /* Kreyser Avrora */ />
-                    <MyGreatPlace {...this.props.greatPlaceCoords}
+                    <MyGreatPlace {...this.state.greatPlaceCoords}
                                   text={'B'} /* road circle */ />
                 </GoogleMap>
             </div>
         );
     }
+
+
 }
 
 export default (Map);
