@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="server.SongsEntity">
+        <table name="songs" schema="public" catalog="geoSong"/>
+        <attributes>
+            <id name="id">
+                <column name="id"/>
+            </id>
+            <basic name="url">
+                <column name="url"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

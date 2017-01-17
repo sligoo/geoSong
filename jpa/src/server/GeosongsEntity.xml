@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="server.GeosongsEntity">
+        <table name="geosongs" schema="public" catalog="geoSong"/>
+        <attributes>
+            <id name="id">
+                <column name="id"/>
+            </id>
+            <basic name="latitude">
+                <column name="latitude"/>
+            </basic>
+            <basic name="longitude">
+                <column name="longitude"/>
+            </basic>
+            <basic name="song">
+                <column name="song"/>
+            </basic>
+            <basic name="score">
+                <column name="score"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>
