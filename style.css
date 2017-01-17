@@ -16,11 +16,6 @@ body {
     color: black;
 }
 
-.content-col {
-    padding: 0;
-    min-height: 30%;
-}
-
 #map {
     padding-top: 50px;
     top: 0;
@@ -31,16 +26,23 @@ body {
     width: 100%;
 }
 
-#content {
-    z-index: -1;
+#player {
+    padding: 0;
+    z-index: 1;
+    height: 100px;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
 }
 
-.map {
-    z-index: -1;
+#details {
 }
 
-.card {
-    z-index: -2;
+audio {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
 }
 
 .navbar {
@@ -55,7 +57,10 @@ body {
 
     #content {
         height: 100%;
-        padding: 75px 25px 25px 25px;
+    }
+
+    .content-autre {
+        padding: 75px 50px 50px 50px;
     }
 
     .content-grid {
@@ -69,15 +74,11 @@ body {
 
     .content-col {
         height: 100%;
-        padding: 0;
     }
 }
 
 @media (max-width: 768px) {
     #content {
         padding-top: 50px;
-    }
-    .map {
-        min-height: 50%;
     }
 }
