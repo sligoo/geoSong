@@ -44,19 +44,26 @@ export class MusicPlayer extends React.Component {
 
 
     render() {
-        let controls;
+        let player;
 
         if (State.getConnected()) {
-            controls = 'controls';
+            player = (
+                <div id="player-on">
+                    <Details />
+                    <audio controls>
+                        <source src="/Music/Harder.mp3" type="audio/mp3"/>
+                    </audio>
+                </div>
+            );
         } else {
-            controls = '';
+            player = (
+                <div id="player-off">
+                    <center><p>Vous nêtes pas connecté</p></center>
+                </div>
+            );
         }
-        return(
-            <div id="player">
-                <audio controls={controls}>
-                    <source src={this.state.url} type="audio/mp3"/>
-                </audio>
-            </div>
+        return (
+            player
         );
     }
 }
