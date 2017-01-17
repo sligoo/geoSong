@@ -1,5 +1,3 @@
-package server;
-
 import javax.persistence.*;
 
 /**
