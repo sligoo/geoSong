@@ -1,4 +1,4 @@
-package server;
+package accounts.model;
 
 import javax.persistence.*;
 
@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Table(name = "users", schema = "public", catalog = "geoSong")
 public class UsersEntity {
     private String username;
+    private String email;
     private String password;
 
     @Id
@@ -29,6 +30,16 @@ public class UsersEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Basic
+    @Column(name = "email")
+    public STring getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
