@@ -18,7 +18,6 @@ public class Accounts implements IAccountsLocal, IAccountsRemote {
     @PersistanceManager
     EntityManager em;
 
-    private Map<String, String[]> accountsList;
     private MessageDigest sha256;
 
     public Accounts() {
