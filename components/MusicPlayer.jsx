@@ -1,7 +1,22 @@
+import React from 'react';
+import State from './State.jsx';
+
 export class MusicPlayer extends React.Component {
-    render () {
-        return (
-            <Details artiste="Artiste" titre="Titre" album="Album" />
+    render() {
+        let controls;
+
+        if (State.getConnected()) {
+            controls = 'controls';
+        } else {
+            controls = '';
+        }
+        return(
+            <div id="player">
+                <Details />
+                <audio controls={controls}>
+                    <source src="/Music/Harder.mp3" type="audio/mp3"/>
+                </audio>
+            </div>
         );
     }
 }
@@ -17,3 +32,5 @@ class Details extends React.Component {
         )
     }
 }
+
+export default MusicPlayer;

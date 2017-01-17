@@ -43,7 +43,7 @@ class Signup extends React.Component {
                 </Alert>;
         }
         return (
-            <Grid className="content-grid">
+            <Grid className="content-grid content-autre">
                 <Row className="content-row">
                     {myAlert}
                     <Form action="http://localhost:8081/geoSong/Accounts" method="POST">

@@ -45,7 +45,7 @@ class Connect extends React.Component {
             localStorage.removeItem('username');
 
             return (
-                <Grid className="content-grid">
+                <Grid className="content-grid content-autre">
                     <Row className="content-row">
                         <Alert bsStyle="success">
                             Déconnexion effectuée, cliquez <a href="/#/">ici</a> pour retourner à l'accueil
@@ -55,7 +55,7 @@ class Connect extends React.Component {
             );
         } else if (!State.getConnected()) {
             return (
-                <Grid className="content-grid">
+                <Grid className="content-grid content-autre">
                     <Row className="content-row">
                         {myAlert}
                         <Form action="http://localhost:8081/geoSong/Accounts" method="POST">
@@ -86,7 +86,7 @@ class Connect extends React.Component {
             );
         } else {
             return (
-                <Grid className="content-grid">
+                <Grid className="content-grid content-autre">
                     <Row className="content-row">
                         <Alert bsStyle="success">
                             Connexion réussie, cliquez <a href="/#/">ici</a> pour retourner à l'accueil
