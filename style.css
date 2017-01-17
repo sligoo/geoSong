@@ -26,17 +26,24 @@ body {
     width: 100%;
 }
 
-#player {
+#player-on {
     padding: 0;
     z-index: 1;
-    height: 100px;
+    height: 25px;
     width: 100%;
     background-color: white;
     position: absolute;
     bottom: 0;
 }
 
-#details {
+#player-off {
+    padding: 0;
+    z-index: 1;
+    height: 25px;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
 }
 
 audio {
@@ -78,7 +85,7 @@ audio {
 }
 
 @media (max-width: 768px) {
-    #content {
-        padding-top: 50px;
+    .content-autre {
+        padding: 50px 5px 5px 5px;
     }
 }
