@@ -1,7 +1,48 @@
 import React from 'react';
 import State from './State.jsx';
 
+let songs = [
+    {
+        url: '/Music/BackInBlack.mp3',
+        cover: 'path/to/jpeg',
+        artist: {
+            name: 'ACDC',
+            song: 'BackInBlack'
+        }
+    },
+    {
+        url: 'https://www.youtube.com/watch?v=FGBhQbmPwH8',
+        artist: {
+            name: 'DaftPunk',
+            song: 'One more Time'
+        }
+    }
+];
+
 export class MusicPlayer extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            url: ''
+            }
+        };
+
+
+    selectMusic(id) {
+        //MusicSuivante = songs[id].url
+        this.setState({
+            url: songs[id].url
+        })
+    }
+
+    componentDidMount(){
+        this.selectMusic(0)
+    }
+
+
+
+
     render() {
         let controls;
 
@@ -12,25 +53,13 @@ export class MusicPlayer extends React.Component {
         }
         return(
             <div id="player">
-                <Details />
                 <audio controls={controls}>
-                    <source src="/Music/Harder.mp3" type="audio/mp3"/>
+                    <source src={this.state.url} type="audio/mp3"/>
                 </audio>
             </div>
         );
     }
 }
 
-class Details extends React.Component {
-    render() {
-        return (
-            <div id="details">
-                <p>{this.props.artiste}</p>
-                <p>{this.props.titre}</p>
-                <p>{this.props.album}</p>
-            </div>
-        )
-    }
-}
 
 export default MusicPlayer;

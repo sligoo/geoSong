@@ -6,6 +6,7 @@ import React, {PropTypes, Component} from 'react';
 import {Button, OverlayTrigger, Popover} from 'react-bootstrap'
 
 import {greatPlaceStyle} from './my_great_place_styles.js';
+import {} from './MusicPlayer.jsx';
 
 const popoverClickRootClose = (
     <Popover id="popover-trigger-click-root-close" title="Lecture Musique">
@@ -25,7 +26,7 @@ export default class MyGreatPlace extends Component {
         return (
             <OverlayTrigger trigger="click" rootClose placement="bottom"
                             overlay={popoverClickRootClose}>
-                <Button style={greatPlaceStyle}>
+                <Button /*onClick={selectMusicExt(0)}*/ style={greatPlaceStyle}>
                     {this.props.text}
                 </Button>
             </OverlayTrigger>
