@@ -2,7 +2,7 @@
 <entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
         version="2.0">
 
-    <entity class="server.UsersEntity">
+    <entity class="UsersEntity">
         <table name="users" schema="public" catalog="geoSong"/>
         <attributes>
             <id name="username">
