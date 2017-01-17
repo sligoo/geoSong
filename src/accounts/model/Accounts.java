@@ -1,8 +1,10 @@
 package accounts.model;
 
 import javax.ejb.Singleton;
+import javax.xml.bind.DatatypeConverter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,7 +29,8 @@ public class Accounts implements IAccountsLocal, IAccountsRemote {
   @Override
   public boolean addAccount(String username, String email, String password) {
     if (!username.equals("") && !exists(username)) {
-      this.accountsList.put(username, new String[] {email, new String(sha256.digest(password.getBytes()))});
+      this.accountsList.put(username, new String[] {email,
+              DatatypeConverter.printHexBinary(sha256.digest(password.getBytes())).toLowerCase()});
       return true;
     } else {
       return false;
@@ -40,9 +43,17 @@ public class Accounts implements IAccountsLocal, IAccountsRemote {
   }
 
   @Override
-  public boolean connection(String username, String password) {
+  public String connection(String username, String password) {
     String[] found = this.accountsList.get(username);
-    return found != null && found[1].equals(new String(sha256.digest(password.getBytes())));
+    String key;
+    if (found != null
+            && found[1].equals(DatatypeConverter.printHexBinary(sha256.digest(password.getBytes())).toLowerCase())) {
+      key = username + (Calendar.getInstance().getTimeInMillis() / 100000) + "ok";
+    } else {
+      key = "nok";
+    }
+
+    return DatatypeConverter.printHexBinary(sha256.digest(key.getBytes())).toLowerCase();
   }
 
   @Override

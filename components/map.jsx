@@ -6,13 +6,12 @@ import React, {PropTypes} from 'react';
 
 import GoogleMap from 'google-map-react';
 import MyGreatPlace from './my_great_place.jsx';
-import {Alert} from 'react-bootstrap';
 
 
 let INITIAL_LOCATION = {
     position: {
-        latitude: 51.5085300,
-        longitude: -0.1257400
+        latitude: 43.6020423,
+        longitude: 1.45222
     }
 };
 
@@ -43,41 +42,25 @@ class Map extends React.Component {
             greatPlaceCoords: {
                 lat: 43.6020423, lng: 1.45222
             }
-        }
+        };
         this.geolocationSearch();
-
     }
 
     geolocationSearch() {
-
-        /// Successful geolocation
         let success = function (position) {
             let lat = position.coords.latitude;
             let lon = position.coords.longitude;
 
-            /// Update state with new API Data based on lat lon
             this.updateState(lat, lon);
         }.bind(this);
 
-        /// Error'd geolocation
-        let error = function (error) {
-            if (error.message == 'User denied Geolocation') {
-                alert('Please enable location services');
-            }
-        };
-
-        /// Get the position
-        navigator.geolocation.watchPosition(success, error);
+        navigator.geolocation.watchPosition(success);
     }
 
     updateState(lat, lon) {
         this.setState({
             center: [lat, lon]
-        })
-    }
-
-    componentDidMount() {
-        this.geolocationSearch();
+        });
     }
 
     render() {

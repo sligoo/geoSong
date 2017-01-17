@@ -29,15 +29,15 @@ function FieldGroup({ id, label, help, ...props }) {
 class Signup extends React.Component {
     render() {
         var state = this.props.location.query.state;
-        var alert;
+        var myAlert;
 
         if (state == "ok") {
-            alert =
+            myAlert =
                 <Alert bsStyle="success">
                     Enregistrement effectué !
                 </Alert>;
         } else if (state == "nok") {
-            alert =
+            myAlert =
                 <Alert bsStyle="danger">
                     Ce pseudonyme est déjà utilisé !
                 </Alert>;
@@ -45,7 +45,7 @@ class Signup extends React.Component {
         return (
             <Grid className="content-grid">
                 <Row className="content-row">
-                    {alert}
+                    {myAlert}
                     <Form action="http://localhost:8081/geoSong/Accounts" method="POST">
                         <FieldGroup
                             id="username"

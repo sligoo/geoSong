@@ -15,7 +15,8 @@
     "underscore": "latest",
     "react-bootstrap-validation": "latest",
     "react-redux": "latest",
-    "react-geolocated": "latest"
+    "react-geolocated": "latest",
+    "crypto-js": "latest"
   },
   "devDependencies": {
     "react-scripts": "0.8.5",

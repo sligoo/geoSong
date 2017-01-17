@@ -23,6 +23,8 @@ body {
 
 #map {
     padding-top: 50px;
+    top: 0;
+    left: 0;
     position: absolute;
     z-index: 0;
     height: 100%;
@@ -72,6 +74,9 @@ body {
 }
 
 @media (max-width: 768px) {
+    #content {
+        padding-top: 50px;
+    }
     .map {
         min-height: 50%;
     }

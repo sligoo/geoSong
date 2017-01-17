@@ -11,10 +11,10 @@ class Home extends React.Component {
     render() {
         return(
         <div>
-            <div>
+            <div id="map">
                 <Map />
             </div>
-            <div id="content">
+            <div>
                 <EcouteContent className="top"/>
             </div>
         </div>

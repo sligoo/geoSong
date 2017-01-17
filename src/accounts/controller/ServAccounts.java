@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletResponseWrapper;
 import java.io.IOException;
+import java.net.URLEncoder;
 
 /**
  * Created by rhiobet on 16/01/17.
@@ -31,12 +32,15 @@ public class ServAccounts extends HttpServlet {
     String op = req.getParameter("op");
     String username, email, password;
     boolean ok;
+    String key;
 
     switch (op) {
       case "login":
         username = req.getParameter("username");
         password = req.getParameter("password");
-        ok = this.accounts.connection(username, password);
+        key = this.accounts.connection(username, password);
+        new HttpServletResponseWrapper(resp).sendRedirect("http://localhost:8080/#/login?username="
+                + username + "&key=" + key);
         break;
 
       case "register":

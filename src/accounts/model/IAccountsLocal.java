@@ -9,6 +9,6 @@ import javax.ejb.Local;
 public interface IAccountsLocal {
   boolean addAccount(String username, String email, String password);
   boolean exists(String username);
-  boolean connection(String username, String passHash);
+  String connection(String username, String passHash);
   String getEmail(String username);
 }
